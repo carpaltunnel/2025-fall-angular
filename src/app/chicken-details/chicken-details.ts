@@ -13,11 +13,10 @@ export class ChickenDetails {
   route: ActivatedRoute = inject(ActivatedRoute);
   chickenId = -1;
 
-  //
+  // TODO: Query data instead of using the hardcode
   currentChicken = mangoChicken;
 
   constructor() {
     this.chickenId = this.route.snapshot.params['id'];
-    console.log(`---> chickenId is : ${this.chickenId}`);
   }
 }

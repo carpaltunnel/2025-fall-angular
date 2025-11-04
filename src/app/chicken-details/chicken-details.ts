@@ -2,11 +2,11 @@ import { Component, input } from '@angular/core';
 import { Chicken as ChickenType} from '../chicken';
 
 @Component({
-  selector: 'app-chicken',
+  selector: 'app-chicken-details',
   imports: [],
-  templateUrl: './chicken.html',
-  styleUrl: './chicken.css',
+  templateUrl: './chicken-details.html',
+  styleUrl: './chicken-details.css',
 })
-export class Chicken {
+export class ChickenDetails {
   currentChicken = input.required<ChickenType>();
 }

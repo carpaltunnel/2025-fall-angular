@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { Chicken as ChickenType } from '../chicken';
-import { Chicken } from '../chicken/chicken';
+import { ChickenDetails } from '../chicken-details/chicken-details';
 import { ChickenService } from '../chicken.service';
 import { mangoChicken, chipotleChicken, mackChicken } from '../chicken';
 
 @Component({
   selector: 'app-chicken-search',
-  imports: [Chicken],
+  imports: [ChickenDetails],
   templateUrl: './chicken-search.html',
   styleUrl: './chicken-search.css',
 })

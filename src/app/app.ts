@@ -11,6 +11,5 @@ import { ChickenSearch } from './chicken-search/chicken-search';
 })
 export class App {
   protected readonly title = signal('ArCA');
-  protected readonly cameron = 'October';
-
+  
 }

@@ -1,5 +1,7 @@
-import { Component, input } from '@angular/core';
-import { Chicken as ChickenType} from '../chicken';
+import { Component, inject } from '@angular/core';
+import { Chicken as ChickenType, mangoChicken} from '../chicken';
+import { ActivatedRoute } from '@angular/router';
+import { ChickenService } from '../chicken.service';
 
 @Component({
   selector: 'app-chicken-details',
@@ -8,5 +10,14 @@ import { Chicken as ChickenType} from '../chicken';
   styleUrl: './chicken-details.css',
 })
 export class ChickenDetails {
-  currentChicken = input.required<ChickenType>();
+  route: ActivatedRoute = inject(ActivatedRoute);
+  chickenId = -1;
+
+  //
+  currentChicken = mangoChicken;
+
+  constructor() {
+    this.chickenId = this.route.snapshot.params['id'];
+    console.log(`---> chickenId is : ${this.chickenId}`);
+  }
 }

@@ -4,6 +4,7 @@ export interface Chicken {
   breed: string;
   color: string;
   weight: number;
+  imagePath?: string;
 }
 
 export const mangoChicken: Chicken = {
@@ -12,6 +13,7 @@ export const mangoChicken: Chicken = {
   breed: 'Speckled Sussex',
   color: 'brown',
   weight: 2,
+  imagePath: '/images/mango.jpg'
 }
 
 export const chipotleChicken: Chicken = {
@@ -20,6 +22,7 @@ export const chipotleChicken: Chicken = {
   breed: 'Buff Orpington',
   color: 'orange',
   weight: 4,
+  imagePath: '/images/chipotle.jpg'
 }
 
 export const mackChicken: Chicken = {
@@ -28,4 +31,5 @@ export const mackChicken: Chicken = {
   breed: 'White Leghorn',
   color: 'white',
   weight: 1.5,
+  imagePath: '/images/mack.jpg'
 }

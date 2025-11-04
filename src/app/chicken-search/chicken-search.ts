@@ -18,7 +18,7 @@ export class ChickenSearch {
 
   constructor() {
     // Load an initial set of data from the service
-    this.searchResults = this.chickenService.getChickens();
+    //this.searchResults = this.chickenService.getChickens();
   }
 
   searchChickens(searchString: string) {

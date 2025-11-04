@@ -1,10 +1,12 @@
 .chicken-picture {
-  height: 15%;
-  width: 15%;
+  height: 60%;
+  width: 60%;
 }
 
 .chicken-overview {
-  display: inline;
+  width: 250px;
+  display: inline-block;
+  text-align: center;
 }
 
 .chicken-overview img {

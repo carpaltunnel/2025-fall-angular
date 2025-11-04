@@ -1,6 +1,7 @@
+<h2>Chicken Search :</h2>
 <form>
-  <input type="text" placeholder="Search for chickens" />
-  <button class="btn-primary" type="button">Search</button>
+  <input type="text" placeholder="Search for chickens" #searchTerm />
+  <button class="btn-primary" type="button" (click)="searchChickens(searchTerm.value)">Search</button>
 </form>
 
 <!-- app-chicken [currentChicken]="currentChicken"/ -->

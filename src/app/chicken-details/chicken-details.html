@@ -4,3 +4,16 @@
 <div><span>Chicken Breed :</span> {{ currentChicken.breed }} </div>
 <div><span>Chicken Weight :</span> {{ currentChicken.weight }} </div>
 <div><span>Chicken Color :</span> {{ currentChicken.color }} </div>
+
+<form [formGroup]="commentForm" (submit)="submitComment()">
+  <div>
+    <label for="name">Name</label><br>
+    <input id="name" type="text" formControlName="name" />
+  </div>
+
+  <div>
+    <label for="comment">Comment</label><br>
+    <textarea id="comment" formControlName="comment"></textarea>
+  </div>
+  <button type="submit" class="primary">Post Comment</button>
+</form>

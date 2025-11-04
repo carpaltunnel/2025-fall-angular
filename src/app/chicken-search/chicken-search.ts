@@ -21,5 +21,9 @@ export class ChickenSearch {
     this.searchResults = this.chickenService.getChickens();
   }
 
+  searchChickens(searchString: string) {
+    this.searchResults = this.chickenService.searchChickens(searchString);
+  }
+
   currentChicken: ChickenType  = mangoChicken;  
 }

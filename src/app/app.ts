@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';
 
 import { ChickenSearch } from './chicken-search/chicken-search';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ChickenSearch],
+  imports: [RouterModule, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

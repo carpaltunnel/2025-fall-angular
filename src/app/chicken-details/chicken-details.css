@@ -2,7 +2,6 @@
   height: 60%;
   width: 60%;
   display: inline-block;
-  margin-left: 20%;
 }
 
 .chicken-details {
@@ -10,4 +9,12 @@
   padding: 1.5em;
   background-color: #dcf1ff;
   border-radius: 25px;
+  text-align: center;
+}
+
+.text-details {
+  text-align: left;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
 }

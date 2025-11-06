@@ -7,7 +7,7 @@ import { ChickenOverview } from './chicken-overview/chicken-overview';
   providedIn: 'root'
 })
 export class ChickenService {
-  url = 'http://127.0.0.1:3000/api/v1/chickens';
+  url = '/api/v1/chickens';
   
   async getChickens(): Promise<Chicken[]> {
     const data = await fetch(this.url);

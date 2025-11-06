@@ -17,12 +17,14 @@ export class ChickenSearch {
   searchResults: ChickenType[] = [];
 
   constructor() {
-    // Load an initial set of data from the service
-    //this.searchResults = this.chickenService.getChickens();
+    // TODO: Load an initial set of data from the service
+    this.chickenService.getChickens().then((chickens) => {
+      this.searchResults = chickens;
+    });
   }
 
-  searchChickens(searchString: string) {
-    this.searchResults = this.chickenService.searchChickens(searchString);
+  async searchChickens(searchString: string) {
+    this.searchResults = await this.chickenService.searchChickens(searchString);
   }
 
   currentChicken: ChickenType  = mangoChicken;  

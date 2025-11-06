@@ -14,13 +14,14 @@ export class ChickenService {
     return (await data.json()) ?? [];
   } 
 
-  getChickenById(id: string): Chicken {
-    // TODO: Query chicken by ID from API
-    return mackChicken;
+  async getChickenById(id: string): Promise<Chicken> {
+    const data = await fetch(`${this.url}/${id}`);
+    return (await data.json()) ?? {};
   }
 
   submitComment(name: string, comment: string) {
-    console.log(`Submitted comment from name "${name}" with comment : ${comment}`);
+    // TODO: Implement
+    console.error(`Submitted comment from name "${name}" with comment : ${comment}`);
   }
 
   async searchChickens(searchString: string): Promise<Chicken[]> {

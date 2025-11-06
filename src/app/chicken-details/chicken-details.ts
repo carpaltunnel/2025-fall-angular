@@ -14,7 +14,8 @@ export class ChickenDetails {
   chickenService: ChickenService = inject(ChickenService);
   route: ActivatedRoute = inject(ActivatedRoute);
   chickenId: string = '';
-  currentChicken: ChickenType;
+
+  currentChicken!: ChickenType;
 
   commentForm = new FormGroup({
     name: new FormControl(''),
@@ -23,7 +24,10 @@ export class ChickenDetails {
 
   constructor() {
     this.chickenId = this.route.snapshot.params['id'];
-    this.currentChicken = this.chickenService.getChickenById(this.chickenId);
+    this.chickenService.getChickenById(this.chickenId)
+      .then((chicken) => {
+        this.currentChicken = chicken;
+      });
   }
 
   submitComment() {

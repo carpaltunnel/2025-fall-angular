@@ -26,8 +26,8 @@ export class ChickenService {
 
   async searchChickens(searchString: string): Promise<Chicken[]> {
     // TODO: Make this actually do a search
-    console.error(`---> ADD SEARCH TERM!`);
-    const data = await fetch(this.url);
+    console.error(`---> ${searchString}`);
+    const data = await fetch(`${this.url}?search=${searchString}`);
     return (await data.json()) ?? [];
   }
 }

@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Chicken as ChickenType } from '../chicken';
 import { ChickenService } from '../chicken.service';
 import { mangoChicken, chipotleChicken, mackChicken } from '../chicken';
@@ -6,7 +7,7 @@ import { ChickenOverview } from "../chicken-overview/chicken-overview";
 
 @Component({
   selector: 'app-chicken-search',
-  imports: [ChickenOverview, ChickenOverview],
+  imports: [ChickenOverview, ChickenOverview, FormsModule],
   templateUrl: './chicken-search.html',
   styleUrl: './chicken-search.css',
 })
@@ -20,8 +21,15 @@ export class ChickenSearch {
     });
   }
 
-  async searchChickens(searchString: string) {
-    this.searchResults = await this.chickenService.searchChickens(searchString);
+
+  //searchTerm = input<string | undefined>();
+  searchTerm = '';//model<string>('');
+
+  //async searchChickens(searchString: string) {
+  async searchChickens() {
+    //this.searchResults = await this.chickenService.searchChickens(searchString);
+    console.log(`--- searchTerm : ${this.searchTerm}`);
+    this.searchResults = await this.chickenService.searchChickens(this.searchTerm);
   }
 
   currentChicken: ChickenType  = mangoChicken;  

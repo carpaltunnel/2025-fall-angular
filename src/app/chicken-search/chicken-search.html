@@ -1,7 +1,10 @@
 <h2>Chicken Search :</h2>
 <form>
-  <input type="text" placeholder="Search for chickens" #searchTerm />
-  <button class="btn-primary" type="button" (click)="searchChickens(searchTerm.value)">Search</button>
+  <input type="text" name="searchTerm" placeholder="Search for chickens" 
+    [(ngModel)]="searchTerm" 
+    (keyup.enter)="searchChickens()"
+    />
+  <button class="btn-primary" type="button" (click)="searchChickens()">Search</button>
 </form>
 <br>
 

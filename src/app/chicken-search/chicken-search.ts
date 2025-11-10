@@ -21,15 +21,9 @@ export class ChickenSearch {
     });
   }
 
-
-  //searchTerm = input<string | undefined>();
-  searchTerm = '';//model<string>('');
-
-  //async searchChickens(searchString: string) {
-  async searchChickens() {
-    //this.searchResults = await this.chickenService.searchChickens(searchString);
-    console.log(`--- searchTerm : ${this.searchTerm}`);
-    this.searchResults = await this.chickenService.searchChickens(this.searchTerm);
+  async searchChickens(searchString: string) {
+    console.log(`--- searchTerm : ${searchString}`);
+    this.searchResults = await this.chickenService.searchChickens(searchString);
   }
 
   currentChicken: ChickenType  = mangoChicken;  

@@ -1,10 +1,7 @@
 <h2>Chicken Search :</h2>
-<form>
-  <input type="text" name="searchTerm" placeholder="Search for chickens" 
-    [(ngModel)]="searchTerm" 
-    (keyup.enter)="searchChickens()"
-    />
-  <button class="btn-primary" type="button" (click)="searchChickens()">Search</button>
+<form (submit)="searchChickens(searchTerm.value); $event.preventDefault()">
+  <input type="text" placeholder="Search for chickens" #searchTerm />
+  <button class="btn-primary" type="submit">Search</button>
 </form>
 <br>
 

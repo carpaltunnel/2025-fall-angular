@@ -7,7 +7,7 @@ export interface Chicken {
   imagePath?: string;
 }
 
-export type CreateChicken = {
+export interface CreateChicken {
   name?: string | null;
   breed?: string | null;
   color?: string | null;

@@ -1,8 +1,7 @@
 <div class="chicken-details">
-  <img class="chicken-picture" src="{{currentChicken.imagePath || '/images/unknown.jpg'}}">
-
+  <h2>Create Chicken : </h2>
   <div class="text-details">
-    <form [formGroup]="chickenForm">
+    <form [formGroup]="newChickenForm">
       <label for="name">Name :</label>
       <input id="name" formControlName="name" type="text">
 
@@ -19,6 +18,6 @@
       <input id="imagePath" formControlName="imagePath" type="text">
     </form>
 
-    <button class="btn btn-primary" (click)="saveChicken()">Save</button>
+    <button class="btn btn-primary" (click)="createChicken()">Save</button>
   </div>
 </div>

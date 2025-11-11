@@ -2,6 +2,7 @@
 <form (submit)="searchChickens(searchTerm.value); $event.preventDefault()">
   <input type="text" placeholder="Search for chickens" #searchTerm />
   <button class="btn-primary" type="submit">Search</button>
+  <a class="btn btn-success" [routerLink]="['/chickens/new']">New Chicken</a>
 </form>
 <br>
 

@@ -7,6 +7,14 @@ export interface Chicken {
   imagePath?: string;
 }
 
+export type CreateChicken = {
+  name?: string | null;
+  breed?: string | null;
+  color?: string | null;
+  weight?: number | null;
+  imagePath?: string | null;
+}
+
 export const mangoChicken: Chicken = {
   id: 'abc-123',
   name: 'Mango',

@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { Chicken as ChickenType } from '../chicken';
 import { ChickenService } from '../chicken.service';
 import { mangoChicken, chipotleChicken, mackChicken } from '../chicken';
@@ -7,7 +8,7 @@ import { ChickenOverview } from "../chicken-overview/chicken-overview";
 
 @Component({
   selector: 'app-chicken-search',
-  imports: [ChickenOverview, ChickenOverview, FormsModule],
+  imports: [ChickenOverview, ChickenOverview, FormsModule, RouterModule],
   templateUrl: './chicken-search.html',
   styleUrl: './chicken-search.css',
 })

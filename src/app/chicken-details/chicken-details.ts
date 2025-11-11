@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { Chicken as ChickenType} from '../chicken';
+import { Chicken as ChickenType } from '../chicken';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChickenService } from '../chicken.service';
 
@@ -29,7 +29,7 @@ export class ChickenDetails {
       .then((chicken) => {
         this.currentChicken = chicken;
       });
-      //.catch() -> display error, or route to listing page
+    //.catch() -> display error, or route to listing page
   }
 
   submitComment() {

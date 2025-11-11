@@ -1,5 +1,5 @@
 <div class="chicken-details">
-  <img class="chicken-picture" src="{{currentChicken.imagePath ?? '/images/unknown.jpg'}}">
+  <img class="chicken-picture" src="{{currentChicken.imagePath || '/images/unknown.jpg'}}">
 
   <div class="text-details">
     <h3>{{ currentChicken.name }} Details : </h3>

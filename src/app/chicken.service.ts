@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Chicken } from './chicken';
+import { Chicken, CreateChicken } from './chicken';
 import { mackChicken, mangoChicken, chipotleChicken } from './chicken';
 import { ChickenOverview } from './chicken-overview/chicken-overview';
 
@@ -31,19 +31,23 @@ export class ChickenService {
 
   async deleteChicken(id: string): Promise<void> {
     await fetch(`${this.url}/${id}`, { method: 'DELETE' });
-
-    // TODO: Route to listing page
   }
 
   async updateChicken(id: string, chickenData: Chicken) {
-
-    
     await fetch(`${this.url}/${id}`, { 
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(chickenData),
     });
+  }
 
-    // TODO: Route to listing page
+  async createChicken(chicken: CreateChicken) {
+    const response = await fetch(this.url, { 
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(chicken),
+    });
+
+    return (await response.json()) ?? {};
   }
 }

@@ -1,0 +1,12 @@
+<div class="chicken-details">
+  <img class="chicken-picture" src="{{currentChicken.imagePath ?? '/images/unknown.jpg'}}">
+
+  <div class="text-details">
+    <h3>{{ currentChicken.name }} Details : </h3>
+    <div><span>ID :</span> {{ currentChicken.id }} </div>
+    <div><span>Breed :</span> {{ currentChicken.breed }} </div>
+    <div><span>Weight :</span> {{ currentChicken.weight }} </div>
+    <div><span>Color :</span> {{ currentChicken.color }} </div>
+    <!--button class="btn btn-danger" (click)="deleteChicken()">Delete</button-->
+  </div>
+</div>

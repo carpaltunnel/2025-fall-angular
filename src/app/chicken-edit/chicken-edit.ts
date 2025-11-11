@@ -1,27 +1,28 @@
 import { Component, inject } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { Chicken as ChickenType} from '../chicken';
 import { ActivatedRoute } from '@angular/router';
 import { ChickenService } from '../chicken.service';
 
 @Component({
-  selector: 'app-chicken-details',
-  imports: [ReactiveFormsModule, RouterModule],
-  templateUrl: './chicken-details.html',
-  styleUrl: './chicken-details.css',
+  selector: 'app-chicken-edit',
+  imports: [],
+  templateUrl: './chicken-edit.html',
+  styleUrl: './chicken-edit.css',
 })
-export class ChickenDetails {
+export class ChickenEdit {
   chickenService: ChickenService = inject(ChickenService);
   route: ActivatedRoute = inject(ActivatedRoute);
   chickenId: string = '';
 
   currentChicken!: ChickenType;
 
+  /*
   commentForm = new FormGroup({
     name: new FormControl(''),
     comment: new FormControl(''),
   });
+  */
 
   constructor() {
     this.chickenId = this.route.snapshot.params['id'];
@@ -32,11 +33,4 @@ export class ChickenDetails {
       //.catch() -> display error, or route to listing page
   }
 
-  submitComment() {
-    this.chickenService.submitComment(this.commentForm.value.name ?? '', this.commentForm.value.comment ?? '');
-  };
-
-  deleteChicken() {
-    this.chickenService.deleteChicken(this.currentChicken.id);
-  }
 }

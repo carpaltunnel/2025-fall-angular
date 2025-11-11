@@ -7,11 +7,17 @@
     <div><span>Breed :</span> {{ currentChicken.breed }} </div>
     <div><span>Weight :</span> {{ currentChicken.weight }} </div>
     <div><span>Color :</span> {{ currentChicken.color }} </div>
+    <button class="btn btn-danger" (click)="deleteChicken()">Delete</button>
+    <a class="btn btn-success" [routerLink]="['/chickens/edit', currentChicken.id]">Edit</a>
   </div>
 </div>
 
 
 
+
+
+
+<!-- TODO: Pointless Commend Code, that need to be implemented or deleted -->
 <form [formGroup]="commentForm" (submit)="submitComment()">
   <div>
     <label for="name">Name</label><br>

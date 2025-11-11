@@ -28,4 +28,10 @@ export class ChickenService {
     const data = await fetch(`${this.url}?search=${searchString}`);
     return (await data.json()) ?? [];
   }
+
+  async deleteChicken(id: string): Promise<void> {
+    await fetch(`${this.url}/${id}`, { method: 'DELETE' });
+
+    // TODO: Route to listing page
+  }
 }

@@ -3,3 +3,24 @@
   height: 2em;
   width: 2em;
 }
+
+.chicken-picture {
+  height: 60%;
+  width: 60%;
+  display: inline-block;
+}
+
+.chicken-details {
+  width: 80%;
+  padding: 1.5em;
+  background-color: #dcf1ff;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.text-details {
+  text-align: left;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}

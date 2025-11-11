@@ -34,4 +34,16 @@ export class ChickenService {
 
     // TODO: Route to listing page
   }
+
+  async updateChicken(id: string, chickenData: Chicken) {
+
+    
+    await fetch(`${this.url}/${id}`, { 
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(chickenData),
+    });
+
+    // TODO: Route to listing page
+  }
 }

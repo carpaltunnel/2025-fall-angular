@@ -2,11 +2,20 @@
   <img class="chicken-picture" src="{{currentChicken.imagePath ?? '/images/unknown.jpg'}}">
 
   <div class="text-details">
-    <h3>{{ currentChicken.name }} Details : </h3>
-    <div><span>ID :</span> {{ currentChicken.id }} </div>
-    <div><span>Breed :</span> {{ currentChicken.breed }} </div>
-    <div><span>Weight :</span> {{ currentChicken.weight }} </div>
-    <div><span>Color :</span> {{ currentChicken.color }} </div>
-    <!--button class="btn btn-danger" (click)="deleteChicken()">Delete</button-->
+    <form [formGroup]="chickenForm">
+      <label for="name">Name :</label>
+      <input id="name" formControlName="name" type="text">
+
+      <label for="breed">Breed :</label>
+      <input id="breed" formControlName="breed" type="text">
+
+      <label for="color">Color : </label>
+      <input id="color" formControlName="color" type="text">
+
+      <label for="weight">Weight</label>
+      <input id="weight" formControlName="weight" type="number">
+    </form>
+
+    <button class="btn btn-primary" (click)="saveChicken()">Save</button>
   </div>
 </div>

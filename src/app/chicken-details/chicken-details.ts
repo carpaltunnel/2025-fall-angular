@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Chicken as ChickenType} from '../chicken';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChickenService } from '../chicken.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class ChickenDetails {
   chickenService: ChickenService = inject(ChickenService);
   route: ActivatedRoute = inject(ActivatedRoute);
   chickenId: string = '';
-
+  router: Router = inject(Router);
   currentChicken!: ChickenType;
 
   commentForm = new FormGroup({
@@ -38,5 +38,7 @@ export class ChickenDetails {
 
   deleteChicken() {
     this.chickenService.deleteChicken(this.currentChicken.id);
+    // Redirect to the listing page
+    this.router.navigate(['']);
   }
 }

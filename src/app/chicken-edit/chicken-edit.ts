@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { Chicken, Chicken as ChickenType} from '../chicken';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Chicken, Chicken as ChickenType } from '../chicken';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChickenService } from '../chicken.service';
 
 @Component({
@@ -12,6 +12,7 @@ import { ChickenService } from '../chicken.service';
 })
 export class ChickenEdit {
   chickenService: ChickenService = inject(ChickenService);
+  router: Router = inject(Router);
   route: ActivatedRoute = inject(ActivatedRoute);
   chickenId: string = '';
 
@@ -31,27 +32,16 @@ export class ChickenEdit {
           breed: new FormControl(this.currentChicken.breed),
           color: new FormControl(this.currentChicken.color),
           weight: new FormControl(this.currentChicken.weight),
+          imagePath: new FormControl(this.currentChicken.imagePath),
         });
       });
-      //.catch() -> display error, or route to listing page
+    //.catch() -> display error, or route to listing page
   }
 
   async saveChicken() {
-    console.log(``);
-    // TODO: Include ID
     const updateChicken: Chicken = this.chickenForm.value;
-
     await this.chickenService.updateChicken(this.chickenId, updateChicken);
-
-
-    /*
-    const updateChicken: Chicken = {
-      id: this.chickenId,
-      name: this.chickenForm.get('name'),
-      breed: this.chickenForm.get('breed'),
-      color: this.chickenForm.get('color'),
-      weight: this.chickenForm.get('weight'),
-
-    }*/
+    // Redirect to the listing page
+    this.router.navigate(['']);
   }
 }

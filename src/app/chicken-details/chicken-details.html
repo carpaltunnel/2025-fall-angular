@@ -1,4 +1,4 @@
-<div class="chicken-details">
+<div class="chicken-details container">
   <img class="chicken-picture" src="{{currentChicken.imagePath || '/images/unknown.jpg'}}">
 
   <div class="text-details">
@@ -7,8 +7,9 @@
     <div><span>Breed :</span> {{ currentChicken.breed }} </div>
     <div><span>Weight :</span> {{ currentChicken.weight }} </div>
     <div><span>Color :</span> {{ currentChicken.color }} </div>
-    <button class="btn btn-danger" (click)="deleteChicken()">Delete</button>
+    
     <a class="btn btn-success" [routerLink]="['/chickens/edit', currentChicken.id]">Edit</a>
+    <button class="btn btn-danger ms-5" (click)="deleteChicken()">Delete</button>
   </div>
 </div>
 

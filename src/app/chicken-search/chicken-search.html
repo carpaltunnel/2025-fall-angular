@@ -1,12 +1,15 @@
 <h2>Chicken Search :</h2>
 <form (submit)="searchChickens(searchTerm.value); $event.preventDefault()">
-  <input type="text" placeholder="Search for chickens" #searchTerm />
-  <button class="btn-primary" type="submit">Search</button>
-  <a class="btn btn-success" [routerLink]="['/chickens/new']">New Chicken</a>
+  <input class="form-control w-25 d-inline" type="text" placeholder="Search for chickens" #searchTerm />
+  <button class="btn btn-primary ms-1" type="submit">Search</button>
+
+  <div class="inline-float-right">
+    <a class="btn btn-success" [routerLink]="['/chickens/new']">New Chicken</a>
+  </div>
 </form>
 <br>
 
-<section class="results">
+<section class="results text-center">
   @for(result of searchResults; track $index) {
     <app-chicken-overview [currentChicken]="result"></app-chicken-overview>
   }

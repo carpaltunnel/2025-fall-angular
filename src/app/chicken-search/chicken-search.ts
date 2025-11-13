@@ -16,16 +16,54 @@ export class ChickenSearch {
   chickenService: ChickenService = inject(ChickenService);
   searchResults: ChickenType[] = [];
 
+  // Properties for controlling pagination
+  chickensPerPage = 20; // TODO: Allow user to control page size
+  currentPage = 0;
+  previousDisabled = true;
+  nextDisabled = false;
+
+
   constructor() {
-    this.chickenService.getChickens().then((chickens) => {
+    this.chickenService.getChickens(this.currentPage, this.chickensPerPage).then((chickens) => {
       this.searchResults = chickens;
     });
   }
 
   async searchChickens(searchString: string) {
-    console.log(`--- searchTerm : ${searchString}`);
+    // TODO: Handle pagination
     this.searchResults = await this.chickenService.searchChickens(searchString);
   }
 
-  currentChicken: ChickenType  = mangoChicken;  
+  async nextPage() {
+    if (this.searchResults.length < this.chickensPerPage) {
+      return;
+    }
+
+    this.previousDisabled = false;
+
+    this.currentPage += 1;
+    const skip = this.currentPage * this.chickensPerPage;
+    this.searchResults = await this.chickenService.getChickens(skip, this.chickensPerPage);
+
+    // Disable the next button, if no next page.
+    if (this.searchResults.length < this.chickensPerPage) {
+      this.nextDisabled = true;
+    }
+  }
+
+  async previousPage() {
+    if (this.currentPage === 0) {
+      return;
+    }
+
+    this.nextDisabled = false;
+
+    this.currentPage = this.currentPage <= 0 ? 0 : this.currentPage - 1;
+    const skip = this.currentPage * this.chickensPerPage;
+    this.searchResults = await this.chickenService.getChickens(skip, this.chickensPerPage);
+
+    if (this.currentPage === 0) {
+      this.previousDisabled = true;
+    }
+  }
 }

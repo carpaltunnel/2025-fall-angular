@@ -1,4 +1,3 @@
-
 <form (submit)="searchChickens(searchTerm.value); $event.preventDefault()">
   <input class="form-control w-25 d-inline" type="text" placeholder="Search for chickens" #searchTerm />
   <button class="btn btn-primary ms-1" type="submit">Search</button>
@@ -11,6 +10,10 @@
 
 <section class="results text-center">
   @for(result of searchResults; track $index) {
-    <app-chicken-overview [currentChicken]="result"></app-chicken-overview>
+  <app-chicken-overview [currentChicken]="result"></app-chicken-overview>
   }
+  <div>
+    <button (click)="previousPage()" class="btn btn-secondary me-5" id="previous" [disabled]="previousDisabled ? true : null">Previous</button>
+    <button (click)="nextPage()" class="btn btn-secondary ms-5" id="next" [disabled]="nextDisabled ? true : null">Next</button>
+  </div>
 </section>

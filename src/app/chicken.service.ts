@@ -9,8 +9,8 @@ import { ChickenOverview } from './chicken-overview/chicken-overview';
 export class ChickenService {
   url = '/api/v1/chickens';
   
-  async getChickens(): Promise<Chicken[]> {
-    const data = await fetch(this.url);
+  async getChickens(skip: number, limit: number): Promise<Chicken[]> {
+    const data = await fetch(`${this.url}?skip=${skip}&limit=${limit}`);
     return (await data.json()) ?? [];
   } 
 

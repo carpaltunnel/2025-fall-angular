@@ -42,10 +42,25 @@ export class ChickenService {
   }
 
   async createChicken(chicken: CreateChicken) {
+
+
+    // TODO: There is a problem in this area
+    //   when "weight" is specified, file does not transfer
+    //   when "weight" is not specified, file does transfer.
+
+    const formData = new FormData();
+    Object.keys(chicken).forEach((prop) => {
+      console.log(`${prop} = ${chicken[prop]}`);
+      formData.append(prop, chicken[prop]);
+    });
+
+    //formData.append('selected-file', file);
+ 
+
     const response = await fetch(this.url, { 
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(chicken),
+      //headers: { 'Content-Type': 'multipart/form-data' },
+      body: formData, //JSON.stringify(chicken),
     });
 
     return (await response.json()) ?? {};

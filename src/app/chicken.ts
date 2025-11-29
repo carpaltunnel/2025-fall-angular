@@ -8,6 +8,7 @@ export interface Chicken {
 }
 
 export interface CreateChicken {
+  [key: string]: any;
   name?: string | null;
   breed?: string | null;
   color?: string | null;

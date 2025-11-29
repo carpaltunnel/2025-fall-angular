@@ -14,8 +14,13 @@
       <label for="weight">Weight : </label>
       <input id="weight" class="form-control" formControlName="weight" type="number">
 
-      <label for="imagePath">Image URL:</label>
+      <label for="imagePath">Image URL :</label>
       <input id="imagePath" class="form-control" formControlName="imagePath" type="text">
+
+      <label for="uploadImage">Upload Image :</label>
+      <input id="uploadImage" class="form-control" formControlName="uploadImage" type="file"
+        #filePicker (change)="onFileSelected($event)">
+
     </form>
 
     <div class="text-center mt-3">

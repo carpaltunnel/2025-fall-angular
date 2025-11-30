@@ -18,8 +18,7 @@
       <input id="imagePath" class="form-control" formControlName="imagePath" type="text">
 
       <label for="uploadImage">Upload Image :</label>
-      <input id="uploadImage" class="form-control" formControlName="uploadImage" type="file"
-        #filePicker (change)="onFileSelected($event)">
+      <input id="uploadImage" class="form-control" type="file" (change)="onFileSelected($event)">
 
     </form>
 

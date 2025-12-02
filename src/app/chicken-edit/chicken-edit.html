@@ -1,5 +1,5 @@
 <div class="chicken-details container">
-  <img class="chicken-picture" src="{{currentChicken.imagePath || '/images/unknown.jpg'}}">
+  <img class="chicken-picture" src="{{currentChicken.imagePath || '/ui/images/unknown.jpg'}}">
 
   <div class="text-details">
     <form [formGroup]="chickenForm">
@@ -15,8 +15,6 @@
       <label for="weight">Weight : </label>
       <input id="weight" class="form-control" formControlName="weight" type="number">
 
-      <label for="imagePath">Image URL:</label>
-      <input id="imagePath" class="form-control" formControlName="imagePath" type="text">
     </form>
 
     <div class="text-center mt-3">

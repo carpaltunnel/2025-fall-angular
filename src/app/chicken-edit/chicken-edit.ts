@@ -16,12 +16,15 @@ export class ChickenEdit {
   route: ActivatedRoute = inject(ActivatedRoute);
   chickenId: string = '';
 
-  // TODO: Remove ! and SAFELY async load data at component load time
-  currentChicken!: ChickenType;
-  chickenForm!: FormGroup;
-  // TODO: ^
+  currentChicken: ChickenType;
+  chickenForm: FormGroup;
 
   constructor() {
+    // These two assignments are ONLY to satisfy Typescript
+    //   but are a best practice for safety.
+    this.currentChicken = {} as ChickenType;
+    this.chickenForm = {} as FormGroup;
+
     this.chickenId = this.route.snapshot.params['id'];
     this.chickenService.getChickenById(this.chickenId)
       .then((chicken) => {
@@ -32,7 +35,6 @@ export class ChickenEdit {
           breed: new FormControl(this.currentChicken.breed),
           color: new FormControl(this.currentChicken.color),
           weight: new FormControl(this.currentChicken.weight),
-          imagePath: new FormControl(this.currentChicken.imagePath),
         });
       });
     //.catch() -> display error, or route to listing page

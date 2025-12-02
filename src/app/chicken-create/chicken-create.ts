@@ -18,8 +18,7 @@ export class ChickenCreate {
     breed: new FormControl(''),
     color: new FormControl(''),
     weight: new FormControl(0),
-    imagePath: new FormControl(''),
-    uploadImage: new FormControl(null as unknown as File), // TODO: Fix 
+    uploadImage: new FormControl(),
   });
 
   async createChicken() {

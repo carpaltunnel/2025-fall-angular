@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Chicken as ChickenType } from '../chicken';
 import { ChickenService } from '../chicken.service';
-import { mangoChicken, chipotleChicken, mackChicken } from '../chicken';
 import { ChickenOverview } from "../chicken-overview/chicken-overview";
 
 @Component({
@@ -30,8 +29,13 @@ export class ChickenSearch {
   }
 
   async searchChickens(searchString: string) {
-    // TODO: Handle pagination
     this.searchResults = await this.chickenService.searchChickens(searchString);
+
+    if (this.searchResults?.length < this.chickensPerPage) {
+      this.nextDisabled = true;
+    } else {
+      this.nextDisabled = false;
+    }
   }
 
   async nextPage() {

@@ -14,6 +14,7 @@
   }
   <div>
     <button (click)="previousPage()" class="btn btn-secondary me-5" id="previous" [disabled]="previousDisabled ? true : null">Previous</button>
+    <span>Page {{ currentPage + 1 }} of {{ totalPages() }}</span>
     <button (click)="nextPage()" class="btn btn-secondary ms-5" id="next" [disabled]="nextDisabled ? true : null">Next</button>
   </div>
 </section>

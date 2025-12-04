@@ -76,4 +76,8 @@ export class ChickenSearch {
       this.previousDisabled = true;
     }
   }
+
+  totalPages() {
+    return Math.ceil(this.totalCount / this.chickensPerPage);
+  }
 }

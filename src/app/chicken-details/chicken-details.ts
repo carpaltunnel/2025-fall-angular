@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { QrCodeComponent } from 'ng-qrcode';
 import { Chicken as ChickenType } from '../chicken';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChickenService } from '../chicken.service';
 
 @Component({
   selector: 'app-chicken-details',
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, QrCodeComponent],
   templateUrl: './chicken-details.html',
   styleUrl: './chicken-details.css',
 })

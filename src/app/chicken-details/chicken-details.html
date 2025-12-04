@@ -2,8 +2,13 @@
   <img class="chicken-picture" src="{{currentChicken.imagePath || '/ui/images/unknown.jpg'}}">
 
   <div class="text-details text-center">
+    <!-- QR Code Start-->
+    <qr-code value="{{ currentChicken.id }}" 
+         size="300" 
+         errorCorrectionLevel="M" />
+    <!-- QR Code End-->
     <h3>{{ currentChicken.name }} Details : </h3>
-    <div><span>ID :</span> {{ currentChicken.id }} </div>
+    <div><span>ID : </span> <span id="chickenId">{{ currentChicken.id }}</span></div>
     <div><span>Breed :</span> {{ currentChicken.breed }} </div>
     <div><span>Weight :</span> {{ currentChicken.weight }} </div>
     <div><span>Color :</span> {{ currentChicken.color }} </div>
@@ -14,22 +19,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<!-- TODO: Pointless Comment Code, that need to be implemented or deleted -->
-<form [formGroup]="commentForm" (submit)="submitComment()">
-  <div>
-    <label for="name">Name</label><br>
-    <input id="name" type="text" formControlName="name" />
-  </div>
-
-  <div>
-    <label for="comment">Comment</label><br>
-    <textarea id="comment" formControlName="comment"></textarea>
-  </div>
-  <button type="submit" class="primary">Post Comment</button>
-</form>

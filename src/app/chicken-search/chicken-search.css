@@ -3,3 +3,10 @@
   float: right;
   margin-right: 5em;
 }
+
+#chickensPerPage {
+  width: 4.28em;
+  display: inline;
+  margin-left: 0.5em;
+  margin-right: 1em;
+}

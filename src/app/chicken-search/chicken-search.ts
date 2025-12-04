@@ -17,7 +17,7 @@ export class ChickenSearch {
   totalCount: number = 0;
 
   // Properties for controlling pagination
-  chickensPerPage = 20; // TODO: Allow user to control page size
+  chickensPerPage = 20;
   currentPage = 0;
   previousDisabled = true;
   nextDisabled = false;
@@ -31,8 +31,10 @@ export class ChickenSearch {
   }
 
   async searchChickens(searchString: string) {
-    this.searchResults = await this.chickenService.searchChickens(searchString);
-
+    const results = await this.chickenService.searchChickens(searchString, this.chickensPerPage);
+    this.searchResults = results.chickens;
+    this.totalCount = results.totalCount;
+    this.currentPage = 0;
     if (this.searchResults?.length < this.chickensPerPage) {
       this.nextDisabled = true;
     } else {

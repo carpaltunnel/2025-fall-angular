@@ -22,9 +22,9 @@ export class ChickenService {
     console.error(`Submitted comment from name "${name}" with comment : ${comment}`);
   }
 
-  async searchChickens(searchString: string): Promise<Chicken[]> {
-    const data = await fetch(`${this.url}?search=${searchString}`);
-    return (await data.json()) ?? [];
+  async searchChickens(searchString: string, pageSize: number): Promise<ChickensResponse> {
+    const data = await fetch(`${this.url}?search=${searchString}&limit=${pageSize}`);
+    return (await data.json()) ?? { chickens: [], totalCount: 0 };
   }
 
   async deleteChicken(id: string): Promise<void> {

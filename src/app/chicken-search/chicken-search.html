@@ -3,6 +3,15 @@
   <button class="btn btn-primary ms-1" type="submit">Search</button>
 
   <div class="inline-float-right">
+    <label for="chickensPerPage">Chickens per page : </label>
+    <select id="chickensPerPage" name="chickensPerPage" [(ngModel)]="chickensPerPage"
+    (change)="searchChickens('')">
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+    </select>
     <a class="btn btn-success" [routerLink]="['/chickens/new']">New Chicken</a>
   </div>
 </form>

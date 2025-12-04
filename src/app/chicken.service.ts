@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Chicken, CreateChicken } from './chicken';
-import { ChickenOverview } from './chicken-overview/chicken-overview';
+import { Chicken, CreateChicken, ChickensResponse } from './chicken';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +7,9 @@ import { ChickenOverview } from './chicken-overview/chicken-overview';
 export class ChickenService {
   url = '/api/v1/chickens';
   
-  async getChickens(skip: number, limit: number): Promise<Chicken[]> {
+  async getChickens(skip: number, limit: number): Promise<ChickensResponse> {
     const data = await fetch(`${this.url}?skip=${skip}&limit=${limit}`);
-    return (await data.json()) ?? [];
+    return (await data.json()) ?? { chickens: [], totalCount: 0 };
   } 
 
   async getChickenById(id: string): Promise<Chicken> {

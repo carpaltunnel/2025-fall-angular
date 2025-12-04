@@ -14,6 +14,7 @@ import { ChickenOverview } from "../chicken-overview/chicken-overview";
 export class ChickenSearch {
   chickenService: ChickenService = inject(ChickenService);
   searchResults: ChickenType[] = [];
+  totalCount: number = 0;
 
   // Properties for controlling pagination
   chickensPerPage = 20; // TODO: Allow user to control page size
@@ -23,8 +24,9 @@ export class ChickenSearch {
 
 
   constructor() {
-    this.chickenService.getChickens(this.currentPage, this.chickensPerPage).then((chickens) => {
-      this.searchResults = chickens;
+    this.chickenService.getChickens(this.currentPage, this.chickensPerPage).then((response) => {
+      this.searchResults = response.chickens;
+      this.totalCount = response.totalCount;
     });
   }
 
@@ -47,7 +49,9 @@ export class ChickenSearch {
 
     this.currentPage += 1;
     const skip = this.currentPage * this.chickensPerPage;
-    this.searchResults = await this.chickenService.getChickens(skip, this.chickensPerPage);
+    const chickenResponse = await this.chickenService.getChickens(skip, this.chickensPerPage);
+    this.searchResults = chickenResponse.chickens;
+    this.totalCount = chickenResponse.totalCount;
 
     // Disable the next button, if no next page.
     if (this.searchResults.length < this.chickensPerPage) {
@@ -64,7 +68,9 @@ export class ChickenSearch {
 
     this.currentPage = this.currentPage <= 0 ? 0 : this.currentPage - 1;
     const skip = this.currentPage * this.chickensPerPage;
-    this.searchResults = await this.chickenService.getChickens(skip, this.chickensPerPage);
+    const chickenResponse = await this.chickenService.getChickens(skip, this.chickensPerPage);
+    this.searchResults = chickenResponse.chickens;
+    this.totalCount = chickenResponse.totalCount;
 
     if (this.currentPage === 0) {
       this.previousDisabled = true;

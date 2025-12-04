@@ -14,3 +14,8 @@ export interface CreateChicken {
   color?: string | null;
   weight?: number | null;
 }
+
+export interface ChickensResponse {
+  chickens: Chicken[];
+  totalCount: number;
+}
